@@ -73,21 +73,105 @@
   ],
   "orders": [
     {
-      "id": 1,
-      "product_id": 1,
       "name": "Ao molho",
       "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas.",
       "price": 19.9,
       "category": 1,
+      "image_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-gorestaurant-mobile/ao_molho.png",
       "extras": [
         {
-          "id": 4,
+          "id": 1,
+          "name": "Bacon",
+          "value": 1.5
+        },
+        {
+          "id": 2,
+          "name": "Frango",
+          "value": 2
+        }
+      ],
+      "id": 10
+    },
+    {
+      "name": "Veggie",
+      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
+      "price": "R$21,90",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "quantity": 1,
+      "extras": [
+        {
+          "id": 3,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 0
+        }
+      ],
+      "id": 14
+    },
+    {
+      "name": "Veggie",
+      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
+      "price": "R$23,40",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "quantity": 1,
+      "extras": [
+        {
+          "id": 3,
           "name": "Bacon",
           "value": 1.5,
           "quantity": 1
         }
-      ]
+      ],
+      "id": 15
+    },
+    {
+      "name": "Veggie",
+      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
+      "price": "R$21,90",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "quantity": 1,
+      "extras": [
+        {
+          "id": 3,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 0
+        }
+      ],
+      "id": 16
+    },
+    {
+      "name": "Veggie",
+      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
+      "price": "R$23,40",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "quantity": 1,
+      "extras": [
+        {
+          "id": 3,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 1
+        }
+      ],
+      "id": 17
+    },
+    {
+      "name": "Veggie",
+      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
+      "price": "R$24,90",
+      "thumbnail_url": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png",
+      "quantity": 1,
+      "extras": [
+        {
+          "id": 3,
+          "name": "Bacon",
+          "value": 1.5,
+          "quantity": 2
+        }
+      ],
+      "id": 18
     }
   ],
   "favorites": [

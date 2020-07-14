@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Image, ScrollView } from 'react-native';
+import React, { useEffect, useState, useCallback } from 'react';
+import { Image, ScrollView, Alert } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
@@ -32,6 +32,7 @@ interface Food {
   id: number;
   name: string;
   description: string;
+  category: number;
   price: number;
   thumbnail_url: string;
   formattedPrice: string;
@@ -55,11 +56,32 @@ const Dashboard: React.FC = () => {
 
   async function handleNavigate(id: number): Promise<void> {
     // Navigate do ProductDetails page
+    navigation.navigate('FoodDetails', { id });
   }
 
   useEffect(() => {
     async function loadFoods(): Promise<void> {
       // Load Foods from API
+      try {
+        const response = await api.get<Food[]>(
+          `/foods?name_like=${searchValue}`,
+        );
+
+        const dataFiltered = response.data.filter(food =>
+          selectedCategory ? food.category === selectedCategory : true,
+        );
+
+        // const selectedFoods = !dataFiltered.length
+        //   ? response.data
+        //   : dataFiltered;
+
+        setFoods(dataFiltered);
+      } catch (err) {
+        Alert.alert(
+          'Erro',
+          'Não foi possivel buscar as comidas, recarregue a pagina',
+        );
+      }
     }
 
     loadFoods();
@@ -68,14 +90,34 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     async function loadCategories(): Promise<void> {
       // Load categories from API
+      try {
+        const response = await api.get('/categories');
+        setCategories(response.data);
+      } catch (err) {
+        Alert.alert(
+          'Erro',
+          'Não foi possivel buscar as categorias, recarregue a pagina',
+        );
+      }
     }
 
     loadCategories();
   }, []);
 
-  function handleSelectCategory(id: number): void {
-    // Select / deselect category
-  }
+  const handleSelectCategory = useCallback(
+    (id: number) => {
+      if (id === selectedCategory) {
+        setSelectedCategory(undefined);
+      } else {
+        setSelectedCategory(id);
+      }
+    },
+    [selectedCategory],
+  );
+
+  // function handleSelectCategory(id: number): void {
+  //   // Select / deselect category
+  // }
 
   return (
     <Container>
